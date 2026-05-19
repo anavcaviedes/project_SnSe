@@ -1,5 +1,5 @@
 &CONTROL
-  calculation  = "vc-relax",
+  calculation  = "scf",
   prefix       = "SnSe_pnma",
   pseudo_dir   = "../pseudo",
   outdir       = "./tmp",
@@ -26,13 +26,6 @@
 &ELECTRONS
   conv_thr    = 1.D-8,
   mixing_beta = 0.7D0,
-/
-
-&IONS
-/
-
-&CELL
-  cell_dofree='ibrav'
 /
 
 ATOMIC_SPECIES
