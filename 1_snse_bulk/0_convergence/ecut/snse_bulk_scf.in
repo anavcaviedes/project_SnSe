@@ -16,8 +16,8 @@
   C           = 4.439,
   nat         = 8,
   ntyp        = 2,
-  ecutwfc     = 30,	 
-  ecutrho     = 300, 
+  ecutwfc     = 90,	 
+  ecutrho     = 900, 
   nbnd        = 50,
   occupations = 'fixed',
 /
