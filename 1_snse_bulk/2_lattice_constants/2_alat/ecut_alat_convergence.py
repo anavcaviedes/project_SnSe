@@ -9,7 +9,7 @@ input_template = "snse_bulk_alat.in"
 qe_command = "mpirun -np 6 pw.x -npools 3"
 
 
-summary_file = "ecut_alat_results.dat"
+summary_file = "ecut_alat_results_more.dat"
 
 
 Path("tmp").mkdir(exist_ok=True)
@@ -22,7 +22,11 @@ with open(input_template, "r") as f:
 ecutwfc_values = [30, 40, 50, 60]
 
 
-alat_values = [12.15 - 0.05 * i for i in range(25)]
+alat_values = [
+	i / 100
+	for i in range(1215, 1094, -1)
+	if i % 5 != 0
+	]
 
 
 with open(summary_file, "w") as summary:
