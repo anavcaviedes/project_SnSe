@@ -1,0 +1,43 @@
+&CONTROL
+  calculation  = 'scf',
+  prefix       = 'Se_atom',
+  pseudo_dir   = '../pseudo',
+  outdir       = './tmp',
+  restart_mode = 'from_scratch',
+  verbosity    = 'high'
+/
+
+&SYSTEM
+  ibrav     = 0,
+  nat       = 1,
+  ntyp      = 1,
+  nbnd      = 8,
+  ecutwfc   = 50,
+  ecutrho   = 500,
+  nspin     = 2,
+  occupations = 'from_input',
+  nosym     = .true.
+/
+
+&ELECTRONS
+  conv_thr        = 1.D-7,
+  mixing_beta     = 0.3D0,
+  electron_maxstep = 200
+/
+
+CELL_PARAMETERS {angstrom}
+12.0   0.0   0.0
+ 0.0  13.0   0.0
+ 0.0   0.0  14.0
+
+ATOMIC_SPECIES
+Se 78.971  Se_pbe_v1.uspp.F.UPF
+
+ATOMIC_POSITIONS {angstrom}
+Se  6.0  6.5  7.0
+
+K_POINTS {Gamma}
+
+OCCUPATIONS
+1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0
+1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0
