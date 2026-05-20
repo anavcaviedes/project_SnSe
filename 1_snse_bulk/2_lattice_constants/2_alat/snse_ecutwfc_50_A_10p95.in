@@ -1,0 +1,46 @@
+&CONTROL
+  calculation  = "scf",
+  prefix       = "SnSe_pnma",
+  pseudo_dir   = "../pseudo",
+  outdir       = "./tmp",
+  restart_mode = "from_scratch",
+  verbosity    = "high",
+  tprnfor      = .true.,
+  wf_collect   =.true.
+/
+
+&SYSTEM
+  ibrav       = 8,	 
+  A           = 10.95, 
+  B           = 4.1714,
+  C           = 4.5555,
+  nat         = 8,
+  ntyp        = 2,
+  ecutwfc     = 50,	 
+  ecutrho     = 500, 
+  nbnd        = 40,
+  occupations = 'fixed',
+  vdw_corr    = 'grimme-d3',
+/
+
+&ELECTRONS
+  conv_thr    = 1.D-8,
+  mixing_beta = 0.7D0,
+/
+
+ATOMIC_SPECIES
+Sn 118.710  Sn_pbe_v1.uspp.F.UPF
+Se  78.971  Se_pbe_v1.uspp.F.UPF
+
+ATOMIC_POSITIONS {crystal}
+Se               0.8549563467        0.2500000000        0.4832480702
+Sn               0.1165395030        0.2500000000        0.1122870178
+Se               0.6450436533        0.7500000000        0.9832480702
+Sn               0.3834604970        0.7500000000        0.6122870178
+Se               0.3549563467        0.2500000000        0.0167519298
+Sn               0.6165395030        0.2500000000        0.3877129822
+Se               0.1450436533        0.7500000000        0.5167519298
+Sn               0.8834604970        0.7500000000        0.8877129822
+
+K_POINTS {automatic}
+  3 8 8 1 1 1
