@@ -1,0 +1,47 @@
+&CONTROL
+  calculation  = "relax",
+  prefix       = "SnSe_pnma",
+  pseudo_dir   = "../pseudo",
+  outdir       = "./tmp",
+  restart_mode = "from_scratch",
+  verbosity    = "high",
+  tprnfor      = .true.,
+/
+
+&SYSTEM
+  ibrav       = 0,	
+  A           = 4.5555, 
+  nat         = 4,
+  ntyp        = 2,
+  ecutwfc     = 30,	 
+  ecutrho     = 300, 
+  occupations = 'fixed',
+  vdw_corr = 'grimme-d3'
+/
+
+&ELECTRONS
+  conv_thr    = 1.D-8,
+  mixing_beta = 0.7D0,
+/
+
+&IONS
+  ion_dynamics = 'bfgs'
+/
+
+CELL_PARAMETERS {alat}
+  1.0000000000   0.0000000000   0.0000000000
+  0.0000000000   0.9156843376   0.0000000000
+  0.0000000000   0.0000000000   3.292723082
+
+ATOMIC_SPECIES
+Sn 118.710  Sn_pbe_v1.uspp.F.UPF
+Se  78.971  Se_pbe_v1.uspp.F.UPF
+
+ATOMIC_POSITIONS {alat}
+Sn  0.1122870178  0.6867632532  1.3080038055
+Se  0.5167519298  0.2289210844  1.3802693821
+Se  0.0167519298  0.6867632532  1.9124537000
+Sn  0.6122870178  0.2289210844  1.9847192765
+
+K_POINTS {automatic}
+  6 6 1 0 0 0
