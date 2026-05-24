@@ -6,7 +6,6 @@ import re
 import sys
 import time
 from datetime import datetime
-import numpy as np
 
 # ============================================================
 # User settings
@@ -16,13 +15,13 @@ TEMPLATE = Path("snse_mono_relax.in")   # after relax, replace this with your re
 
 VACUUMS_ANG = [15.0, 18.0, 20.0, 22.0]
 
-PW_COMMAND = "mpirun -np 6 pw.x -npools 3"
+PW_COMMAND = "mpirun -np 16 pw.x -npools 4"
 PP_COMMAND = "pp.x"
 AVG_COMMAND = "average.x"   # keep average.x serial
 
 PREFIX = "SnSe_monolayer"
 OUTDIR = "./tmp"
-PSEUDO_DIR = "../../pseudo"
+PSEUDO_DIR = "../pseudo"
 
 # The monolayer cell has 2 formula units: 2 Sn + 2 Se = 2 SnSe
 N_FORMULA_UNITS = 2
@@ -269,41 +268,68 @@ def make_average_input(filplot: Path) -> str:
 """
 
 
+def median(values):
+    """Return the median of a list of numbers."""
+    values = sorted(values)
+    n = len(values)
+
+    if n == 0:
+        return None
+
+    mid = n // 2
+
+    if n % 2 == 1:
+        return values[mid]
+
+    return 0.5 * (values[mid - 1] + values[mid])
+
+
 def read_avg_and_extract_evac(avg_file: Path):
     """
     Reads avg.dat. Uses column 2 as planar-averaged potential.
     Evac is estimated as the median of the edge regions, because
-    the slab is centered and vacuum is at cell boundaries.
+    the slab is centered and vacuum is at the cell boundaries.
     """
     data = []
+
     with avg_file.open() as f:
         for line in f:
             if not line.strip() or line.strip().startswith("#"):
                 continue
+
             parts = line.split()
+
             if len(parts) >= 2:
                 try:
-                    data.append((float(parts[0]), float(parts[1])))
+                    z = float(parts[0])
+                    v = float(parts[1])
+                    data.append((z, v))
                 except ValueError:
                     pass
 
     if not data:
         return None
 
-    arr = np.array(data)
-    z = arr[:, 0]
-    v = arr[:, 1]
+    z_values = [z for z, v in data]
+    v_values = [v for z, v in data]
 
-    zmin, zmax = z.min(), z.max()
+    zmin = min(z_values)
+    zmax = max(z_values)
     width = zmax - zmin
 
-    edge_mask = (z < zmin + 0.10 * width) | (z > zmax - 0.10 * width)
-    if edge_mask.sum() >= 5:
-        return float(np.median(v[edge_mask]))
+    edge_values = [
+        v for z, v in data
+        if (z < zmin + 0.10 * width) or (z > zmax - 0.10 * width)
+    ]
+
+    if len(edge_values) >= 5:
+        return median(edge_values)
 
     # fallback: median of the highest 10% potential values
-    n = max(5, int(0.10 * len(v)))
-    return float(np.median(np.sort(v)[-n:]))
+    n = max(5, int(0.10 * len(v_values)))
+    highest_values = sorted(v_values)[-n:]
+
+    return median(highest_values)
 
 
 def format_time(seconds):

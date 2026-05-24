@@ -1,0 +1,5 @@
+# C_Ang  C_alat  Etot_Ry  Etot_per_fu_Ry  VBM_eV  CBM_eV  Gap_eV  EF_eV  Evac_Ry  Evac_eV  Phi_Evac_minus_EF_eV  IP_Evac_minus_VBM_eV  scf_time_s  pp_time_s  avg_time_s
+15.0000  3.2927230820  -413.7970991600  -206.8985495800  nan  nan  nan  nan  0.3388022020  4.6096387898  nan  nan  10.34  3.99  0.81
+18.0000  3.9512676984  -413.7970949300  -206.8985474650  nan  nan  nan  nan  0.2823249450  3.8412265626  nan  nan  11.73  3.89  0.75
+20.0000  4.3902974427  -413.7970918800  -206.8985459400  nan  nan  nan  nan  0.2540930045  3.4571114439  nan  nan  13.27  3.80  0.82
+22.0000  4.8293271869  -413.7970917700  -206.8985458850  nan  nan  nan  nan  0.2309919145  3.1428051026  nan  nan  15.19  4.92  0.80
