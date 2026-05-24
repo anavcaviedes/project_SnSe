@@ -1,0 +1,8 @@
+# grid  Nk_total  np  npools  nscf_seconds  nscf_time  dos_seconds  dos_time  total_seconds  total_time  EFermi_eV  dos_file
+6x6x2           72    8       4         34.97         35s         3.54        4s          38.51         39s       8.097  dos_data/6x6x2.dat
+8x8x3          192    8       4         56.41         56s         4.00        4s          60.40       1m00s       7.818  dos_data/8x8x3.dat
+10x10x4        400    8       8        125.23       2m05s         5.72        6s         130.95       2m11s       8.145  dos_data/10x10x4.dat
+12x12x4        576   12       4        117.06       1m57s         7.45        7s         124.51       2m05s       7.614  dos_data/12x12x4.dat
+16x16x6       1536   12       4        491.26       8m11s        18.94       19s         510.20       8m30s       8.144  dos_data/16x16x6.dat
+20x20x8       3200   12       4       2619.66      43m40s        35.33       35s        2654.99      44m15s       7.545  dos_data/20x20x8.dat
+24x24x8       4608   12       4       3684.87    1h01m25s        50.11       50s        3734.98    1h02m15s       8.126  dos_data/24x24x8.dat

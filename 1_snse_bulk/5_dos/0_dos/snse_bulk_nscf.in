@@ -18,7 +18,7 @@
   ntyp        = 2,
   ecutwfc     = 30,	 
   ecutrho     = 300, 
-  nbnd        = 50,
+  nbnd        = 70,
   occupations = 'tetrahedra',
   vdw_corr    = 'grimme-d3',
 /
