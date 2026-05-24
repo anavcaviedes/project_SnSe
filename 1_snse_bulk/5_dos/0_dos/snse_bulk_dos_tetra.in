@@ -1,0 +1,8 @@
+ &dos
+   outdir='./tmp'
+   prefix='SnSe_pnma'
+   bz_sum='tetrahedra'
+   fildos='snse_bulk_dos_tetra.dat',
+   Emin=0.0, Emax=10.0, DeltaE=0.05
+ /
+
