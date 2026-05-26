@@ -1,0 +1,10 @@
+&INPUTPP
+  prefix  = 'SnSe_monolayer',
+  outdir  = './tmp',
+  filplot = 'potential_files/snse_mono_potential_C20.pp',
+  plot_num = 11,
+/
+&PLOT
+  iflag = 3,
+  output_format = 5,
+/

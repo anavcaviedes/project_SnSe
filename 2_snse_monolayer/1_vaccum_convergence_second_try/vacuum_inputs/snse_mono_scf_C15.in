@@ -1,0 +1,44 @@
+&CONTROL
+  calculation  = 'scf',
+  prefix       = 'SnSe_monolayer',
+  pseudo_dir   = '../pseudo',
+  outdir       = './tmp',
+  restart_mode = "from_scratch",
+  verbosity    = "high",
+  tprnfor      = .true.,
+/
+
+&SYSTEM
+  ibrav       = 0,	
+  A           = 4.5555, 
+  nat         = 4,
+  ntyp        = 2,
+  ecutwfc     = 30,	 
+  ecutrho     = 300, 
+  nbnd        = 30,
+  occupations = 'fixed',
+/
+
+&ELECTRONS
+  conv_thr    = 1.D-8,
+  mixing_beta = 0.7D0,
+/
+
+CELL_PARAMETERS {alat}
+  1.0000000000   0.0000000000   0.0000000000
+  0.0000000000   0.9156843376   0.0000000000
+  0.0000000000   0.0000000000   3.2927230820
+
+ATOMIC_SPECIES
+Sn 118.710  Sn_pbe_v1.uspp.F.UPF
+Se  78.971  Se_pbe_v1.uspp.F.UPF
+
+ATOMIC_POSITIONS {alat}
+Sn  0.0995058619  0.6867632532  1.3411356407
+Se  0.5295330857  0.2289210844  1.3553377253
+Se  0.0295330857  0.6867632532  1.9373853568
+Sn  0.5995058619  0.2289210844  1.9515874413
+
+
+K_POINTS {automatic}
+  8 8 1 0 0 0

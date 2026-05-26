@@ -1,0 +1,26 @@
+
+     Program AVERAGE v.6.7MaX starts on 26May2026 at 22:57:10 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI), running on     1 processors
+
+     MPI processes distributed on     1 nodes
+     Reading header from file  potential_files/snse_mono_potential_C8.pp
+     Reading data from file  potential_files/snse_mono_potential_C8.pp
+     Output written to file avg.dat
+
+     AVERAGE      :      0.08s CPU      0.08s WALL
+
+
+   This run was terminated on:  22:57:10  26May2026            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
